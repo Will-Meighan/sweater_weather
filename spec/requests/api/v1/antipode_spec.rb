@@ -8,7 +8,7 @@ describe 'Forecast API' do
     expect(response).to be_successful
 
     forecast = JSON.parse(response.body, symbolize_names: true)
-    expect(forecast[:data][:type]).to eq("antipode_weather")
+    expect(forecast[:data][:type]).to eq("antipode")
     expect(forecast[:data][:attributes]).to have_key(:location_name)
     expect(forecast[:data][:attributes]).to have_key(:forecast)
     expect(forecast[:data][:attributes]).to have_key(:search_location)
