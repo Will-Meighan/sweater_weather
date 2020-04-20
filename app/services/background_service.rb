@@ -1,4 +1,4 @@
-class UnsplashService
+class BackgroundService
   def initialize(city)
     @city = city
   end
@@ -15,7 +15,5 @@ class UnsplashService
     just_city = @city.split(',').first
     conn.get("search/photos?query=#{just_city}&client_id=#{ENV['UNSPLASH_ACCESS_KEY']}")
   end
-
-
 
 end
