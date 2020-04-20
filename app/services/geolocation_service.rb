@@ -6,6 +6,10 @@ class GeolocationService
     @location = Location.new(data)
   end
 
+  def reverse_geocode(lat, long)
+    get_json("geocode/json?latlng=#{lat},#{long}")
+  end
+
   private
 
     def get_json(url)
