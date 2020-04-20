@@ -38,7 +38,6 @@ RSpec.describe 'user registration' do
      expect(response.status).to eq(400)
      expect(User.count).to eq(1)
      expect(User.first.api_key).to eq(will.api_key)
-     require "pry"; binding.pry
      expect(message['email']).to eq(['has already been taken'])
   end
 
