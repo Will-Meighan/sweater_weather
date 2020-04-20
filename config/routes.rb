@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get '/backgrounds', to: 'backgrounds#show'
       resources :users, only: [:create]
       resources :sessions, only: [:create]
+      get "/antipode", to: "antipode#show"
     end
   end
 end
