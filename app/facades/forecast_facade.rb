@@ -1,23 +1,26 @@
 class ForecastFacade
-  attr_reader :id, :name, :data, :arrival_forecast
+  attr_reader :id, :name, :data, :forecast_object
 
   def initialize(location)
     @id = nil
     location = GeolocationFacade.new(location)
-    @data = ForecastService.new(location.lat, location.long).forecast.data
-    @arrival_forecast = ForecastService.new(location.lat, location.long).forecast
+    @forecast_object = ForecastService.new(location.lat, location.long).forecast
   end
 
   def current
-    @data[:current]
+    @forecast_object.data[:current]
   end
 
   def hourly
-    @data[:hourly]
+    @forecast_object.data[:hourly]
   end
 
   def daily
-    @data[:daily]
+    @forecast_object.data[:daily]
+  end
+
+  def forecast_data
+    @forecast_object.data
   end
 
 end
