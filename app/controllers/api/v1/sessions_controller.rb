@@ -1,4 +1,5 @@
 class Api::V1::SessionsController < ApplicationController
+
   def create
     user = User.find_by(email: params[:email])
     if good_credentials(user)
@@ -10,7 +11,8 @@ class Api::V1::SessionsController < ApplicationController
   end
 
   private
-  def good_credentials(user)
-    user && user.authenticate(params[:password])
-  end
+
+    def good_credentials(user)
+      user && user.authenticate(params[:password])
+    end
 end
