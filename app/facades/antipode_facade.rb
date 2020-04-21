@@ -3,6 +3,8 @@ class AntipodeFacade
 
   def initialize(query)
     @geo_facade = GeolocationFacade.new(query)
+    @location_name = antipode_coords
+    @forecast = ForecastService.new(@location_name)
   end
 
   def antipode_lat_coordinate
@@ -16,4 +18,5 @@ class AntipodeFacade
   def antipode_coords
     @geo_facade.coordinates.reverse_geocode(antipode_lat_coordinate, antipode_long_coordinate)
   end
+
 end
