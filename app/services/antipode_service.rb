@@ -1,10 +1,10 @@
 class AntipodeService
 
-  def connection
+  def self.connection
     Faraday.new("http://amypode.herokuapp.com")
   end
 
-  def get_antipode(lat, long)
+  def self.get_antipode(lat, long)
     response = connection.get("/api/v1/antipodes") do |call|
       call.headers[:api_key] = ENV['WILL_KEY']
       call.params[:lat] = lat
