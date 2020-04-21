@@ -10,4 +10,12 @@ class GeolocationFacade
     @coordinates.location.name
   end
 
+  def lat
+    @coordinates.location.lat
+  end
+
+  def long
+    @coordinates.location.lon
+  end
+
 end
