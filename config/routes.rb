@@ -7,7 +7,6 @@ Rails.application.routes.draw do
       post '/users', to: 'users#create'
       post '/sessions', to: 'sessions#create'
       post '/road_trip', to: 'road_trips#create'
-      # resource :road_trip, only: [:create]
     end
   end
 end
