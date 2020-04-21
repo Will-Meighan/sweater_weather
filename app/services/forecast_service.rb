@@ -10,10 +10,10 @@ class ForecastService
 
     def get_json(url)
       response = conn.get(url)
-      json_response = JSON.parse(response.body, symbolize_names: true)
+      JSON.parse(response.body, symbolize_names: true)
     end
 
     def conn
-      conn = Faraday.new(url: "https://api.openweathermap.org/")
+      Faraday.new(url: "https://api.openweathermap.org/")
     end
 end
