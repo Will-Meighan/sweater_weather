@@ -3,7 +3,6 @@ class AntipodeFacade
 
   def initialize(query)
     @geo_facade = GeolocationFacade.new(query)
-    require "pry"; binding.pry
   end
 
   def antipode_lat_coordinate
