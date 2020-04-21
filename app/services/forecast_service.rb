@@ -1,8 +1,8 @@
 class ForecastService
   attr_reader :forecast
 
-  def initialize(location)
-    data = get_json("data/2.5/onecall?APPID=#{ENV['WEATHER_API_KEY']}&lon=#{location.location.long}&lat=#{location.location.lat}&units=imperial")
+  def initialize(lat, long)
+    data = get_json("data/2.5/onecall?APPID=#{ENV['WEATHER_API_KEY']}&lon=#{long}&lat=#{lat}&units=imperial")
     @forecast = Forecast.new(data)
   end
 

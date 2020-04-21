@@ -1,10 +1,11 @@
 class AntipodeFacade
-  attr_reader :geo_facade, :location_name, :forecast, :forecast, :antipode_city
+  attr_reader :search_location, :forecast, :id, :location_name
 
   def initialize(query)
-    @geo_facade = GeolocationFacade.new(query)
+    @id = nil
+    @search_location = GeolocationFacade.new(query)
     @location_name = antipode_name
-    @forecast = ForecastService.new(@location_name)
+    @forecast = ForecastService.new(antipode_lat, antipode_long)
   end
 
   def antipode_name
@@ -14,10 +15,10 @@ class AntipodeFacade
   end
 
   def antipode_lat
-    AntipodeService.get_antipode(@geo_facade.lat, @geo_facade.long)[:data][:attributes][:lat]
+    AntipodeService.get_antipode(@search_location.lat, @search_location.long)[:data][:attributes][:lat]
   end
 
   def antipode_long
-    AntipodeService.get_antipode(@geo_facade.lat, @geo_facade.long)[:data][:attributes][:long]
+    AntipodeService.get_antipode(@search_location.lat, @search_location.long)[:data][:attributes][:long]
   end
 end
