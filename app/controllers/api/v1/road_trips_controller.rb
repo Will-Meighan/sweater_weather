@@ -12,7 +12,7 @@ class Api::V1::RoadTripsController < ApplicationController
       user = User.find_by(api_key: params["api_key"])
 
       if user
-        @current_user = user
+        @current_user
       else
         render :json => { :errors => "unauthorized" }, :status => 401
       end
