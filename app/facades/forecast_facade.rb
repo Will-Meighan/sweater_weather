@@ -19,8 +19,4 @@ class ForecastFacade
     @forecast_object.data[:daily]
   end
 
-  def forecast_data
-    @forecast_object.data
-  end
-
 end

@@ -6,10 +6,6 @@ class GeolocationFacade
     @coordinates = GeolocationService.new(location)
   end
 
-  def name
-    @coordinates.location.name
-  end
-
   def lat
     @coordinates.location.lat
   end
