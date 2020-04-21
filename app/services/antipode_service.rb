@@ -6,7 +6,7 @@ class AntipodeService
 
   def self.get_antipode(lat, long)
     response = connection.get("/api/v1/antipodes") do |call|
-      call.headers[:api_key] = ENV['WILL_KEY']
+      call.headers[:api_key] = ENV['WILL_API']
       call.params[:lat] = lat
       call.params[:long] = long
     end
