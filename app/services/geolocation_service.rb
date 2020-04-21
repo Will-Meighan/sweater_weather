@@ -10,10 +10,10 @@ class GeolocationService
 
     def get_json(url)
       response = conn.post(url)
-      json_response = JSON.parse(response.body, symbolize_names: true)
+      JSON.parse(response.body, symbolize_names: true)
     end
 
     def conn
-      conn = Faraday.new(url: "https://maps.googleapis.com")
+      Faraday.new(url: "https://maps.googleapis.com")
     end
 end
