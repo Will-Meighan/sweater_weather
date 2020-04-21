@@ -7,7 +7,7 @@ class GeolocationService
   end
 
   def reverse_geocode(lat, long)
-    get_json("geocode/json?latlng=#{lat},#{long}")
+    get_json("maps/api/geocode/json?latlng=#{lat},#{long}&key=#{ENV['GOOGLE_API_KEY']}")
   end
 
   private
