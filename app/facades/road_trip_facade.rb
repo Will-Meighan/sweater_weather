@@ -2,7 +2,7 @@ class RoadTripFacade
   attr_reader :origin, :destination, :id
 
   def initialize(origin, destination)
-    @id = "null"
+    @id = nil
     @origin = origin
     @destination = destination
   end
