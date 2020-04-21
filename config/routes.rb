@@ -4,9 +4,10 @@ Rails.application.routes.draw do
     namespace :v1 do
       get '/forecast', to: 'forecast#show'
       get '/backgrounds', to: 'backgrounds#show'
-      resources :users, only: [:create]
-      resources :sessions, only: [:create]
-      resource :road_trip, only: [:create]
+      post '/users', to: 'users#create'
+      post '/sessions', to: 'sessions#create'
+      post '/road_trip', to: 'road_trips#create'
+      # resource :road_trip, only: [:create]
     end
   end
 end
