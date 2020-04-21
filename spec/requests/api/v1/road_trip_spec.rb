@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "POST request to /api/v1/road_trip" do
   it "returns all information needed for a roadtrip" do
 
-    user = User.create!(email: "whatever@example.com", password: "password", password_confirmation: "password")
+    user = User.create!(email: "will@gmail", password: "password", password_confirmation: "password")
 
     params = {origin: "Denver,CO", destination: "Pueblo,CO", api_key: "#{user.api_key}"}
 
@@ -21,9 +21,9 @@ describe "POST request to /api/v1/road_trip" do
   end
 
   it 'returns a 401 error if api_key invalid' do
-    User.create!(email: "whatever@example.com", password: "password", password_confirmation: "password")
+    user = User.create!(email: "will@gmail.com", password: "password", password_confirmation: "password")
 
-    params = {origin: "Denver,CO", destination: "Pueblo,CO", api_key: "jgn983hy48thw9begh98h4539h4"}
+    params = {origin: "Denver,CO", destination: "Pueblo,CO", api_key: "wrong_key"}
 
     post '/api/v1/road_trip', params: params
 
