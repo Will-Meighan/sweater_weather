@@ -1,20 +1,16 @@
 class Api::V1::RoadTripsController < ApplicationController
-  before_action :authenticate
 
   def create
-    facade = RoadTripFacade.new(params["origin"], params["destination"])
-
-    render json: RoadTripSerializer.new(facade)
+    if authenticate
+      render json: RoadTripSerializer.new(RoadTripFacade.new(params["origin"], params["destination"]))
+    else
+      render :json => { :errors => "unauthorized" }, :status => 401
+    end
   end
 
   private
+
     def authenticate
       user = User.find_by(api_key: params["api_key"])
-
-      if user
-        @current_user
-      else
-        render :json => { :errors => "unauthorized" }, :status => 401
-      end
     end
 end
