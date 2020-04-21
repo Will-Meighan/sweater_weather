@@ -1,4 +1,4 @@
-class AmypodeService
+class AntipodeService
 
   def antipode(location)
     json = get_json(request_antipode(location))
