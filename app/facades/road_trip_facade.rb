@@ -16,7 +16,7 @@ class RoadTripFacade
   end
 
   def arrival_forecast
-    x = ForecastFacade.new(@destination).arrival_forecast
-    x.arrival_forecast(distance.distance_value)
+    forecast_object = ForecastFacade.new(@destination).forecast_object
+    forecast_object.arrival_forecast(distance.distance_value)
   end
 end
