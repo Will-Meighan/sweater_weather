@@ -6,6 +6,13 @@ class YelpService
     @destination = destination
   end
 
+  def business_info
+    info = JSON.parse(response.body, symbolize_names: true)[:businesses][0]
+    name = info[:name]
+    address = info[:location][:address1]
+    [name, address]
+  end
+
   private
 
     def conn
