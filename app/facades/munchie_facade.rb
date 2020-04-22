@@ -6,7 +6,6 @@ class MunchieFacade
     @end = params[:end]
     @food = params[:food]
     @id = nil
-    require "pry"; binding.pry
   end
 
   def end_location
@@ -21,7 +20,10 @@ class MunchieFacade
   end
 
   def restaurant
-
+    {
+      name: restaurant_info[0],
+      address: restaurant_info[1]
+    }
   end
 
   def travel_time
@@ -41,6 +43,10 @@ class MunchieFacade
 
     def arrival_time
       travel_time_unix + Time.now.to_i
+    end
+
+    def restaurant_info
+      YelpService.new(arrival_time, @food, @end).business_info
     end
 
 end
