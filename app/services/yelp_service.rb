@@ -18,7 +18,7 @@ class YelpService
     def conn
       Faraday.new('https://api.yelp.com') do |f|
         f.adapter Faraday.default_adapter
-        f.headers['Authorization'] = ENV['YELP_KEY']
+        f.headers['Authorization'] = "Bearer #{ENV['YELP_KEY']}"
       end
     end
 
