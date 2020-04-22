@@ -21,6 +21,10 @@ class DirectionsService
     parse_json[:routes][0][:legs][0][:duration][:text]
   end
 
+  def distance_unix
+    parse_json[:routes][0][:legs][0][:duration][:value]
+  end
+
   def distance_value
     parse_json[:routes][0][:legs][0][:duration][:value]
   end
